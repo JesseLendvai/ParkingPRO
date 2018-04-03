@@ -5,7 +5,7 @@ unset($_COOKIE["email"]);
 // will destroy cookie(server)
     session_start();
     session_destroy();
-    
+
     header('Location: http://localhost/ProjectParkeren/pages/index.php');
 ?>
 
@@ -18,12 +18,12 @@ unset($_COOKIE["email"]);
 	<button onclick="del()">delete</button>
 
 	<script type="text/javascript">
-		
+
 		function del(){
 			document.cookie = "email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 			location.href = "http://localhost/ProjectParkeren/pages/index.php";
 		}
-
+// test
 	</script>
 </body>
 </html>
