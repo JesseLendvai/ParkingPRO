@@ -1,0 +1,22 @@
+Tablename: prijsberekening (Myrons extra opdracht)
+
+[name type [PK/FK]]
+id int PK
+prijs float
+typeparking enum (valet, economic, longstay)
+starttime datetime
+endtime datetime
+richtprijs float
+qr_sent status bool
+driven_in bool 
+driven_out bool
+
+
+Tablename: Klachten (Indy's extra opdracht)
+
+[name type [PK/FK]]
+id int PK
+klant_id FK klanten PK
+factuur_id FK factuur PK
+Bericht varchar(150)
+Status enum (onbehandeld, in behandeling, afgesloten)

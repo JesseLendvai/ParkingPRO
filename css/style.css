@@ -1,0 +1,169 @@
+@font-face {
+    font-family: opendyslexic;
+    src: url(./fonts/OpenDyslexic-Regular.otf);
+}
+
+body.container-fluid {
+    font-family: opendyslexic;
+    color: black;
+}
+
+button,
+input[type="submit"] {
+    cursor: pointer;
+}
+
+.top-section {
+    background-color: rgb(255, 153, 170);
+    height: 15vh;
+    text-align: center;
+}
+
+.top-section h2 {
+    margin-top: 5vh;
+}
+
+.left-section {
+    background-color: rgb(204, 204, 0);
+    height: 85vh;
+}
+
+.left-section button {
+    width: 11vw;
+    margin-top: 5vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.left-section button.first-button {
+    margin-top: 15vh;
+}
+
+.right-section {
+    background-color: rgb(0, 0, 255);
+    height: 85vh;
+}
+
+.input-text {
+    padding-left: 10vw !important;
+    margin-top: 2vh;
+}
+
+.form-input {
+    margin-top: 2vh;
+}
+
+.form {
+    margin-top: 2vh;
+}
+
+input.kenteken_een,
+input.kenteken_twee,
+input.kenteken_drie {
+    width: 2.5vw;
+}
+
+input.aankomst-dag,
+input.aankomst-maand,
+input.aankomst-jaar {
+    width: 4.2vw;
+    text-align: center;
+}
+
+input.aankomst-maand,
+input.aankomst-jaar,
+span.aankomst-maand,
+span.aankomst-jaar {
+    margin-left: 1.5vw;
+}
+
+span.aankomst-dag,
+span.aankomst-maand,
+span.aankomst-jaar {
+    width: 4.2vw;
+    display: inline-block;
+    text-align: center;
+}
+
+div.col-7.form-input>input[type="submit"] {
+    width: 12vw;
+}
+
+div.col-7.form-input>input[value="Afbreken"],
+div.col-7.form-input>input[value="BETALEN"] {
+    margin-left: 4vw;
+}
+
+/* input.aankomst-dag::-webkit-outer-spin-button,
+input.aankomst-maand::-webkit-outer-spin-button,
+input.aankomst-jaar::-webkit-outer-spin-button,
+input.uitrijtijd::-webkit-outer-spin-button,
+input.aankomst-dag::-webkit-inner-spin-button,
+input.aankomst-maand::-webkit-inner-spin-button,
+input.aankomst-jaar::-webkit-inner-spin-button,
+input.uitrijtijd::-webkit-inner-spin-button {
+    opacity: 1;
+} */
+
+button.registeren.first-button,
+button.registeren,
+button.inloggen,
+button.contact,
+button.info,
+button.reserveringen,
+button.home,
+button.log-uit,
+.overzicht-auto {
+    display: block;
+}
+
+input.uitrijtijd {
+    width: 2.7vw;
+}
+
+input.prijs {
+    width: 6vw;
+}
+
+input.tijd {
+    width: 4.2vw;
+}
+
+input.datum {
+    width: 6vw;
+}
+
+.huisnummer {
+    width: 4vw;
+}
+
+a {
+    color: black !important;
+    text-decoration: none !important;
+}
+
+.welkom-text {
+    text-align: center;
+}
+
+td.table-data {
+    border: 1px solid black;
+    display: inline-block;
+    width: 150px;
+    text-align: center;
+}
+
+td.table-betalen {
+    width: 150px;
+    display: inline-block;
+    text-align: center;
+    text-decoration: underline;
+}
+
+th.table-header {
+    display: inline-block;
+    background-color: lightgray;
+    border: 1px solid black;
+    width: 150px;
+    text-align: center;
+}
