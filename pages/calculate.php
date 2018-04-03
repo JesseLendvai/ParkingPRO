@@ -1,7 +1,1 @@
-<?php 
-
-echo "<h6>Works I guess</h6>"
-
-
-
-?>
+<h1>hier nog zooi gooien</h1>
