@@ -3,7 +3,7 @@
     require_once("../parts/header.php");
 
     if(!isset($_SESSION['logged_user'])) {
-        header('Location: http://localhost/ProjectParkeren/pages/login.php');
+        header('Location: http://localhost/parkingpro/pages/login.php');
     }
 ?>
 

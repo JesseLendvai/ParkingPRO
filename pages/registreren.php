@@ -19,7 +19,7 @@
         $stmt->execute();
 
         if ($stmt) {
-            header('Location: http://localhost/ProjectParkeren/pages/login.php');
+            header('Location: http://localhost/parkingpro/pages/login.php');
         }
 
         $to = $_POST['emailadres'];
@@ -32,7 +32,7 @@ $message = "
 </head>
 <body>
 <p>Beste meneer/mevrouw ". $achternaam .", </p>
-<p>Welkom bij Lelystad parkeren bedankt voor uw keuze!<br>U kunt <a href='http://localhost/ProjectParkeren/pages/login.php?token=". $auth_key ."'>hier</a> klikken om in te loggen.</p>
+<p>Welkom bij Lelystad parkeren bedankt voor uw keuze!<br>U kunt <a href='http://localhost/parkingpro/pages/login.php?token=". $auth_key ."'>hier</a> klikken om in te loggen.</p>
 </body>
 </html>
 ";
@@ -51,7 +51,7 @@ mail($to,$subject,$message,$headers);
 
     if(isset($_SESSION['logged_user'])) {
         //User is already logged in so redirect him to the index page
-        header('Location: http://localhost/ProjectParkeren/pages/index.php');
+        header('Location: http://localhost/parkingpro/pages/index.php');
     }
     
 

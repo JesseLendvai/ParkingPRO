@@ -38,7 +38,7 @@
         
         function del(){
             document.cookie = "email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-            location.href = "http://localhost/ProjectParkeren/pages/logout.php";
+            location.href = "http://localhost/parkingpro/pages/logout.php";
         }
 
     </script>

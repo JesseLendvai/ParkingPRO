@@ -51,11 +51,11 @@ if(mail($to,$subject,$message,$headers)){
 	echo "done";
 }
 
-            header('Location: http://localhost/ProjectParkeren/pages/index.php?mail=true');
+            header('Location: http://localhost/parkingpro/pages/index.php?mail=true');
 
             }
         }else{
-            header("Location: http://localhost/ProjectParkeren/pages/login.php?aankomst=$aankomst&vertrek=$vertrek&type=$type");
+            header("Location: http://localhost/parkingpro/pages/login.php?aankomst=$aankomst&vertrek=$vertrek&type=$type");
         }
     }
 

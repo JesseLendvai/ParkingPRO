@@ -39,14 +39,14 @@
             setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
 
             echo "fucking cookie set";
-            header('Location: http://localhost/ProjectParkeren/pages/index.php');
+            header('Location: http://localhost/parkingpro/pages/index.php');
 
             }
         }
     }
 
     if(isset($_SESSION['logged_user'])) {
-        // header('Location: http://localhost/ProjectParkeren/pages/index.php');
+        // header('Location: http://localhost/parkingpro/pages/index.php');
     }
 ?>
 

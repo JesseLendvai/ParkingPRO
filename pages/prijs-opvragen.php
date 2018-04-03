@@ -181,7 +181,7 @@ if(strpos($tijd, 'days')){
 $type = $_POST['typeparking'];
 
 	echo "<p>De prijs voor de periode van: <b>". $aankomst ."</b> - <b>". $vertrek ."</b> kost u: €<b>". $prijs ."</b></p>
-		  <p><a href='http://localhost/ProjectParkeren/pages/login.php?aankomst=".$aankomst."&vertrek=". $vertrek ."&type=". $type ."' style='color:red !important'>akkoord</a></p>
+		  <p><a href='http://localhost/parkingpro/pages/login.php?aankomst=".$aankomst."&vertrek=". $vertrek ."&type=". $type ."' style='color:red !important'>akkoord</a></p>
 ";
 }
 					?>
