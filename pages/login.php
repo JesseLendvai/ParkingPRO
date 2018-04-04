@@ -29,7 +29,12 @@
                 $_SESSION['logged_user'] = TRUE;
             } elseif ($_SESSION['rol'] == "a") {
                 $_SESSION['logged_admin'] = TRUE;
-            }
+            } elseif ($_SESSION['rol'] == "b") {
+                $_SESSION['Logged_baliemederwerker'] = TRUE;
+            } elseif ($SESSION['rol'] == "g") {
+                $_SESSION['Logged_garagemedewerker'] = TRUE;
+            } elseif ($SESSION['rol'] == "m") {
+                $_SESSION['Logged_garagemanager'] = TRUE;
 
             var_dump($_SESSION);
             echo "moker gay ";
