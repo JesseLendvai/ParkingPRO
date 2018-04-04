@@ -1,5 +1,5 @@
 <div class="left-section col-3">
-<?php 
+<?php
     if (isset($_SESSION['logged_admin'])) {
         // ingelogde admin
         ?>
@@ -25,7 +25,7 @@
             <button type="button" class="registeren"><a href="./registreren.php">Registreren</a></button>
             <button type="button" class="inloggen"><a href="./login.php">Inloggen</a></button>
             <button type="button" class="contact"><a href="./contact.php">Contact</a></button>
-         
+
     <?php
     }
     elseif(!isset($_SESSION['logged_garagemedewerker'])) {
@@ -35,9 +35,9 @@
             <button type="button" class="registeren"><a href="./registreren.php">Registreren</a></button>
             <button type="button" class="inloggen"><a href="./login.php">Inloggen</a></button>
             <button type="button" class="contact"><a href="./contact.php">Contact</a></button>
-      
+
     <?php
-    } 
+    }
     elseif(!isset($_SESSION['logged_garagemanager'])) {
         // niet ingelogde mensen?>
 
@@ -63,10 +63,10 @@
 ?>
 </div>
     <script type="text/javascript">
-        
+
         function del(){
             document.cookie = "email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-            location.href = "http://localhostparkingpro/pages/logout.php";
+            location.href = "http://localhost/parkingpro/pages/logout.php";
         }
 
     </script>

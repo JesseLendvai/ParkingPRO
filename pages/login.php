@@ -37,21 +37,20 @@
                 $_SESSION['Logged_garagemanager'] = TRUE;
 }
             var_dump($_SESSION);
-            echo "moker gay ";
 
             $cookie_name = "email";
             $cookie_value = $_POST['emailadres'];
             setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
 
-            echo "fucking cookie set";
-            header('Location: http://localhostparkingpro/pages/index.php');
+            echo "Koekie getzet";
+            header('Location: http://localhost/parkingpro/pages/index.php');
 
             }
         }
     }
 
     if(isset($_SESSION['logged_user'])) {
-        // header('Location: http://localhostparkingpro/pages/index.php');
+        // header('Location: http://localhost/parkingpro/pages/index.php');
     }
 ?>
 

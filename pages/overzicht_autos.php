@@ -25,7 +25,7 @@
     require_once("../initialize.php");
 
     if(!isset($_SESSION['logged_admin'])) {
-        header('Location: http://localhostparkingpro/pages/index.php');
+        header('Location: http://localhost/parkingpro/pages/index.php');
     }
 ?>
 

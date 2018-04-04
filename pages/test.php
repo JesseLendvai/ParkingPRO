@@ -1,4 +1,3 @@
 <?php
 var_dump($_SERVER);
-echo http://localhost
- ?>
+echo $_SERVER['SERVER_NAME'];
