@@ -1,14 +1,14 @@
-<?php 
+<?php
     require_once("../initialize.php");
-
+//get the asked things
 $aankomst = $_GET['aankomst'];
 $vertrek = $_GET['vertrek'];
 $type = $_GET['type'];
-
+  //select the asked things
     if($_SERVER['REQUEST_METHOD'] == "POST") {
         $query = "SELECT voornaam, emailadres, rol FROM klant WHERE emailadres = '" . $_POST['emailadres'] . "' AND wachtwoord = '" . $_POST['wachtwoord'] . "'";
         $result = $con->query($query);
-
+        //if the num_rows inside the result is bigger then 0. then display the result
         if($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
             $_SESSION['gebruiker'] = $row['emailadres'];
@@ -21,7 +21,7 @@ $type = $_GET['type'];
             }
             $email = $_POST['emailadres'];
             var_dump($_SESSION);
-            echo "moker gay";
+            echo "U wordt geredirect";
 
 $to = $email;
 $subject = "";
@@ -45,7 +45,7 @@ $headers = "MIME-Version: 1.0" . "\r\n";
 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
 // More headers
-$headers .= 'From: <shit@peepz.nl>' . "\r\n";
+$headers .= 'From: <airport@lelystad.nl>' . "\r\n";
 
 if(mail($to,$subject,$message,$headers)){
 	echo "done";

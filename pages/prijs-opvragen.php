@@ -1,72 +1,7 @@
-<?php 
+<?php
+//only require this page one time
 require_once 'dateDiff.php';
 
-	// echo $aankomst." - ".$vertrek;
-
-	// $interval = $aankomst->diff($vertrek);
-	// echo $interval->format('%R%a days');
-
-	// $prijs = 0;
-	// $date1 = new DateTime($result['aankomst']);
-	// $date2 = new DateTime(date('Y-m-d h:i:s'));
-	// $interval = $date1->diff($date2);
-	// $uren = $interval->h;
-	// if ($interval->i > 0) {
-	//     $uren++;
-	// }
-	// $dagen = $interval->days;
-
-	// if($typeparking == 'v') {
-	//     if($dagen > 0) {
-	//         $prijs += $dagen*12;
-	//     }
-	//     if ($uren > 0 && $dagen == 0) {
-	//         $prijs += 2;
-	//         $uren -= 2;
-	//     }
-	//     if ($uren > 0) {
-	//         $prijs += $uren*1;
-	//     }
-	//     echo "€ " . $prijs;
-	// }
-
-	// elseif ($typeparking == 'l') {
-	//     if($dagen > 6) {
-	//         $dagen--;
-	//     }
-	//     if($dagen > 0) {
-	//         $prijs += $dagen*10;
-	//     }
-	//     if ($uren > 0 && $dagen == 0) {
-	//         $prijs += 2;
-	//         $uren -= 3;
-	//     }
-	//     if ($uren > 0) {
-	//             $uren /= 2;
-	//             $uren = ceil($uren);
-	//             $prijs += $uren*1;
-	//     }
-	//     echo "€ " . $prijs;
-	// }
-
-	// else {
-	//     if($dagen > 6) {
-	//         $dagen--;
-	//     }
-	//     if($dagen > 0) {
-	//         $prijs += $dagen*6;
-	//     }
-	//     if ($uren > 0 && $dagen == 0) {
-	//         $prijs += 2;
-	//         $uren -= 4;
-	//     }
-	//     if ($uren > 0) {
-	//             $uren /= 3;
-	//             $uren = ceil($uren);
-	//             $prijs += $uren*1;
-	//     }
-	//     echo "€ " . $prijs;
-	// }
 
 ?>
 <!doctype html>
@@ -84,11 +19,11 @@ require_once 'dateDiff.php';
     <link rel="stylesheet" href="../css/bootstrap-datetimepicker.min.css">
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="../js/bootstrap-datetimepicker.min.js"></script>
-    <script src="../js/bootstrap-datetimepicker.nl.js"></script>    
+    <script src="../js/bootstrap-datetimepicker.nl.js"></script>
     <title>Parking</title>
   </head>
   <body class="container-fluid">
@@ -106,15 +41,15 @@ require_once 'dateDiff.php';
     <?php
     require_once("../parts/sidebar.php");
     ?>
-    
+
     <div class="right-section col-9">
         <div class="col-md-12 text-center">
         </div>
-        <form action="" method="post" class="form"> 
+        <form action="" method="post" class="form">
 			<div class="row">
 				<div class="col-md-12">
-					<?php 
-if(isset($_POST['post'])){	
+					<?php
+if(isset($_POST['post'])){
 
 	$prijs = 0;
 	$aankomst = $_POST['aankomst'];
@@ -197,7 +132,7 @@ $type = $_POST['typeparking'];
                     <input type="radio" name="typeparking" value="economic"> Economic
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col-5 input-text">
                     Aankomstdatum
@@ -207,7 +142,7 @@ $type = $_POST['typeparking'];
                         <input class="aankomst" name="aankomst" id="datePicker" size="16" type="text" value="" readonly>
                         <span class="add-on"><i class="icon-th"></i></span>
                     </div>
-                </div>  
+                </div>
             </div>
             <div class="row">
                 <div class="col-5 input-text">
@@ -218,7 +153,7 @@ $type = $_POST['typeparking'];
                         <input class="vertrek" name="vertrek" id="datePicker" size="16" type="text" value="" readonly>
                         <span class="add-on"><i class="icon-th"></i></span>
                     </div>
-                </div>  
+                </div>
             </div>
 
             <div class="row">
