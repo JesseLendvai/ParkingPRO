@@ -66,7 +66,7 @@
         
         function del(){
             document.cookie = "email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-            location.href = "$_SERVER['SERVER_NAME'];parkingpro/pages/logout.php";
+            location.href = "http://localhostparkingpro/pages/logout.php";
         }
 
     </script>

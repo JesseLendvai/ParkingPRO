@@ -35,7 +35,7 @@
                 $_SESSION['Logged_garagemedewerker'] = TRUE;
             } elseif ($SESSION['rol'] == "m") {
                 $_SESSION['Logged_garagemanager'] = TRUE;
-
+}
             var_dump($_SESSION);
             echo "moker gay ";
 
@@ -44,14 +44,14 @@
             setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
 
             echo "fucking cookie set";
-            header('Location: $_SERVER['SERVER_NAME'];parkingpro/pages/index.php');
+            header('Location: http://localhostparkingpro/pages/index.php');
 
             }
         }
     }
 
     if(isset($_SESSION['logged_user'])) {
-        // header('Location: $_SERVER['SERVER_NAME'];parkingpro/pages/index.php');
+        // header('Location: http://localhostparkingpro/pages/index.php');
     }
 ?>
 

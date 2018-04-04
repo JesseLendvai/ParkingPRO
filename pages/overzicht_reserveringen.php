@@ -25,7 +25,7 @@
     require_once("../initialize.php");
 
     if(!isset($_SESSION['logged_user'])) {
-        header('Location: $_SERVER['SERVER_NAME'];parkingpro/pages/login.php');
+        header('Location: http://localhostparkingpro/pages/login.php');
     }
 
     if($_SERVER['REQUEST_METHOD'] == "POST") {
