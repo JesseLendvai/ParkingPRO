@@ -1,8 +1,8 @@
 <?php
 setcookie ("email", "", time() - 3600);
-//will reset cookie(client,browser)
+//will reset the cookie
 unset($_COOKIE["email"]);
-// will destroy cookie(server)
+// will destroy the cookie
     session_start();
     session_destroy();
 

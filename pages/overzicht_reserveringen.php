@@ -13,11 +13,11 @@
     <link rel="stylesheet" href="../css/bootstrap-datetimepicker.min.css">
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="../js/bootstrap-datetimepicker.min.js"></script>
-    <script src="../js/bootstrap-datetimepicker.nl.js"></script>    
+    <script src="../js/bootstrap-datetimepicker.nl.js"></script>
     <title>Parking</title>
   </head>
   <body class="container-fluid">
@@ -51,7 +51,7 @@
             <div class="col-10 form-input">
                 <table>
                     <thead>
-                            <!-- $result_set = query("SELECT * FROM reservering, klant WHERE klant.kenteken = reservering.kenteken AND klant.emailadres = '" . $_SESSION['gebruiker'] . "'"); -->
+
                         <th class="table-header">Kenteken</th>
                         <th class="table-header">Datum</th>
                         <th class="table-header">Tijd</th>
@@ -60,11 +60,12 @@
                     </thead>
                     <tbody>
                         <?php
+                        //select reservering en klant
                             $sql = "SELECT * FROM reservering, klant WHERE klant.kenteken = reservering.kenteken AND klant.emailadres = '" . $_SESSION['gebruiker'] . "'";
 
                             $result = $con->query($sql);
 
-                            if($result->num_rows > 0){    
+                            if($result->num_rows > 0){
                             while ($row = $result->fetch_assoc()) {
                                 echo '
                                     <tr>
