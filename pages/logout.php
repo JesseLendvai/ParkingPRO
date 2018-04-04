@@ -6,7 +6,7 @@ unset($_COOKIE["email"]);
     session_start();
     session_destroy();
 
-    header('Location: http://localhost/parkingpro/pages/index.php');
+    header('Location: $_SERVER['SERVER_NAME'];parkingpro/pages/index.php');
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +21,7 @@ unset($_COOKIE["email"]);
 
 		function del(){
 			document.cookie = "email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-			location.href = "http://localhost/parkingpro/pages/index.php";
+			location.href = "$_SERVER['SERVER_NAME'];parkingpro/pages/index.php";
 		}
 // test
 	</script>

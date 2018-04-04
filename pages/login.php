@@ -44,14 +44,14 @@
             setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
 
             echo "fucking cookie set";
-            header('Location: http://localhost/parkingpro/pages/index.php');
+            header('Location: $_SERVER['SERVER_NAME'];parkingpro/pages/index.php');
 
             }
         }
     }
 
     if(isset($_SESSION['logged_user'])) {
-        // header('Location: http://localhost/parkingpro/pages/index.php');
+        // header('Location: $_SERVER['SERVER_NAME'];parkingpro/pages/index.php');
     }
 ?>
 
@@ -62,19 +62,19 @@
 </div>
 
 <div class="row">
-    
+
     <?php
         require_once("../parts/sidebar.php");
     ?>
 
     <div class="right-section col-9">
-        <?php 
+        <?php
             if(isset($_GET['token'])){
                 $conn = new mysqli("localhost", "root", "", "parking");
                 // Check connection
                 if ($conn->connect_error) {
                     die("Connection failed: " . $conn->connect_error);
-                } 
+                }
 
                 $sql = "SELECT emailadres, passwordCreated FROM klant WHERE auth_key='".$_GET['token']."'";
                 // echo $sql;
@@ -94,7 +94,7 @@
                 $conn->close();
 
                 echo "
-        <form action='login.php' method='post' class='form'> 
+        <form action='login.php' method='post' class='form'>
             <div class='row'>
                 <div class='col-md-12 input-text'>
                     <p>Dit is voor het eerst dat u inlogd, maak eerst een wachtwoord aan.</p>
@@ -142,7 +142,7 @@
             $vertrek = $_GET['vertrek'];
             $type = $_GET['type'];
                 echo "
-        <form action='redirect.php?aankomst=". $aankomst ."&vertrek=". $vertrek ."&type=". $type ."' method='post' class='form'> 
+        <form action='redirect.php?aankomst=". $aankomst ."&vertrek=". $vertrek ."&type=". $type ."' method='post' class='form'>
             <div class='row'>
                 <div class='col-5 input-text'>
                     E-mailadres
@@ -172,7 +172,7 @@
                 ";
             }else{
                 echo "
-        <form action='./login.php' method='post' class='form'> 
+        <form action='./login.php' method='post' class='form'>
             <div class='row'>
                 <div class='col-5 input-text'>
                     E-mailadres
@@ -207,7 +207,7 @@
     <footer>
     </footer>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script>
