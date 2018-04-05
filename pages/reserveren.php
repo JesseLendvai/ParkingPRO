@@ -13,11 +13,11 @@
     <link rel="stylesheet" href="../css/bootstrap-datetimepicker.min.css">
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="../js/bootstrap-datetimepicker.min.js"></script>
-    <script src="../js/bootstrap-datetimepicker.nl.js"></script>
+    <script src="../js/bootstrap-datetimepicker.nl.js"></script>    
     <title>Parking</title>
   </head>
   <body class="container-fluid">
@@ -25,7 +25,7 @@
     require_once("../initialize.php");
 
     if(!isset($_SESSION['logged_user'])) {
-        header('Location: http://localhost/parkingpro/pages/login.php');
+        header('Location: http://localhost/ProjectParkeren/pages/login.php');
     }
 ?>
 
@@ -39,12 +39,12 @@
     <?php
     require_once("../parts/sidebar.php");
     ?>
-
+    
     <div class="right-section col-9">
         <div class="col-md-12 text-center">
             <h1>Vrije plekken: <span id="spots"></span></h1>
         </div>
-        <form action="./betalen.php" method="post" class="form">
+        <form action="./betalen.php" method="post" class="form"> 
 
             <div class="row">
                 <div class="col-5 input-text">
@@ -56,7 +56,7 @@
                     <input type="radio" name="typeparking" value="economic"> Economic
                 </div>
             </div>
-
+            
             <div class="row">
                 <div class="col-5 input-text">
                     Aankomstdatum
@@ -66,7 +66,7 @@
                         <input onchange="getAvailableSpace(this.value);getPrice(this.value)" class="aankomst" id="datePicker" size="16" type="text" value="" readonly>
                         <span class="add-on"><i class="icon-th"></i></span>
                     </div>
-                </div>
+                </div>  
             </div>
             <div class="row">
                 <div class="col-5 input-text">
@@ -77,7 +77,7 @@
                         <input onchange="getAvailableSpace(this.value);getPrice(this.value)" class="vertrek" id="datePicker" size="16" type="text" value="" readonly>
                         <span class="add-on"><i class="icon-th"></i></span>
                     </div>
-                </div>
+                </div>  
             </div>
 
             <div class="row">
@@ -86,7 +86,7 @@
                 </div>
                 <div class="col-7 form-input aankomst">
                     <input type="checkbox" id="bagagehulp"> (+ €20,-)
-                </div>
+                </div>  
             </div>
             <div class="row">
                 <div class="col-5 input-text">
@@ -107,6 +107,41 @@
             </div>
         </form>
         <div class="col-md-12" style="margin-top: 50px;">
+<!--             <center><h4>Prijs opvragen</h4></center>
+            <form action="" method="POST" class="form">
+                <div class="row">
+                    <div class="col-5 input-text">
+                        Type parking
+                    </div>
+                    <div class="col-7 form-input">
+                        <input type="radio" name="typeparking" value="valet" checked> Valet
+                        <input type="radio" name="typeparking" value="long"> Long
+                        <input type="radio" name="typeparking" value="economic"> Economic
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-5 input-text">
+                        Start tijd
+                    </div>
+                    <div class="col-7 form-input">
+                        <input type="" name="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-5 input-text">
+                        Eindtijd tijd
+                    </div>
+                    <div class="col-7 form-input">
+                        <input type="" name="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <br>
+                        <center><button class="btn btn-primary">Prijs opvragen</button></center>
+                    </div>
+                </div>
+            </form> -->
         </div>
     </div>
 </div>
@@ -129,7 +164,7 @@ function getAvailableSpace(date) {
     if (date == "") {
         document.getElementById("spots").innerHTML = "";
         return;
-    } else {
+    } else { 
         if (window.XMLHttpRequest) {
             // code for IE7+, Firefox, Chrome, Opera, Safari
             xmlhttp = new XMLHttpRequest();
@@ -142,7 +177,7 @@ function getAvailableSpace(date) {
                 document.getElementById("spots").innerHTML = this.responseText;
             }
         };
-
+        
         xmlhttp.open("GET","getSpots.php?q="+iso_date_string,true);
         xmlhttp.send();
     }
@@ -155,8 +190,8 @@ function getPrice(datum){
     if(aankomst && vertrek != ""){
         $.ajax({url: "calculate.php", success: function(result){
                 alert("done");
-            }});
-    }
+            }});     
+    }   
 }
 
 </script>

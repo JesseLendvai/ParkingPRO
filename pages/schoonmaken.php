@@ -24,14 +24,14 @@
 <?php
     require_once("../initialize.php");
 
-    if(!isset($_SESSION['logged_admin'])) {
-        header('Location: http://localhost/ProjectParkeren/pages/index.php');
+    if(!isset($_SESSION['logged_user'])) {
+        header('Location: http://localhost/ProjectParkeren/pages/login.php');
     }
 ?>
 
 <div class="row">
     <div class="top-section col-12">
-        <h2>Overzicht auto's</h2>
+        <h2>Schoonmaken</h2>
     </div>
 </div>
 
@@ -39,64 +39,47 @@
     <?php
     require_once("../parts/sidebar.php");
     ?>
-
+    
     <div class="right-section col-9">
-        <div class="form"> 
+        <form action="./betalen.php" method="post" class="form"> 
+
             <div class="row">
                 <div class="col-5 input-text">
-                    Kenteken
+                    Type behandeling
                 </div>
                 <div class="col-7 form-input">
-                    <input type="text" name="kenteken_een" class="kenteken_een" placeholder="XX">
-                    <span class="oi oi-minus"></span>
-                    <input type="text" name="kenteken_twee" class="kenteken_twee" placeholder="XX">
-                    <span class="oi oi-minus"></span>
-                    <input type="text" name="kenteken_drie" class="kenteken_drie" placeholder="XX">
+                    <input type="radio" name="typeparking" value="schoonmaken" checked> schoonmaken
+                    <input type="radio" name="typeparking" value="wassen"> Wassen
+                    <input type="radio" name="typeparking" value="bijvullen"> Bijvullen
                 </div>
             </div>
-
+            
             <div class="row">
                 <div class="col-5 input-text">
-                    Eind datum
+                    Tijd van ophalen
                 </div>
-                <div class="col-7 form-input">
+                <div class="col-7 form-input aankomst">
                     <div class="input-append date form_datetime">
-                        <input onchange="getAvailableSpace(this.value)" id="till" name="till" size="16" type="text" value="" readonly>
+                        <input id="datePicker" size="16" type="text" value="" readonly>
                         <span class="add-on"><i class="icon-th"></i></span>
                     </div>
-                </div>
+                </div>  
             </div>
 
             <div class="row">
-                <div class="col-5 input-text">
-                    Type parking
+                <div class="col-5">
                 </div>
                 <div class="col-7 form-input">
-                    <input type="radio" class="typeparking" name="typeparking" value="all" checked> All<br>
-                    <input type="radio" name="typeparking" value="v"> Valet<br>
-                    <input type="radio" name="typeparking" value="l"> Long<br>
-                    <input type="radio" name="typeparking" value="e"> Economic
+                    <input type="submit" value="AANMELDEN">
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col-5 input-text">
-                </div>
-                <div class="col-7 form-input">
-                    <input id="zoek" type="submit" value="ZOEK">
-                </div>
-            </div>
-        </div>
-
-        <span id="cars"></span>
+        </form>
     </div>
 </div>
+
+
 <script>
 $(function() {
-    $('#zoek').click(function(){
-        getAvailableSpace();
-    });
-
     $(".form_datetime").datetimepicker({
         format: "yyyy-mm-dd hh:ii:ss",
         minuteStep: 15,
@@ -106,33 +89,6 @@ $(function() {
         todayHighlight: true
     });
 });
-function getAvailableSpace() {
-    let til = $('#till').val() ? $('#till').val() : new Date();
-    let d = new Date(til);
-    let iso_date_string = d.toISOString();
-    let kenteken = $('.kenteken_een').val() ? `${$('.kenteken_een').val()}-${$('.kenteken_twee').val()}-${$('.kenteken_drie').val()}` : "";
-    let typeParking = $('input[name=typeparking]:checked').val();
-    if (til == "") {
-        document.getElementById("cars").innerHTML = "";
-        return;
-    } else { 
-        if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            // code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("cars").innerHTML = this.responseText;
-            }
-        };
-        
-        xmlhttp.open("GET",`getCars.php?kenteken=${kenteken}&date=${iso_date_string}&typeparking=${typeParking}`, true);
-        xmlhttp.send();
-    }
-}
 </script>
 </body>
 </html>

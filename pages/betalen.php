@@ -3,7 +3,7 @@
     require_once("../parts/header.php");
 
     if(!isset($_SESSION['logged_user'])) {
-        header('Location: http://localhost/parkingpro/pages/login.php');
+        header('Location: http://localhost/ProjectParkeren/pages/login.php');
     }
 ?>
 
@@ -19,8 +19,8 @@
     ?>
 
     <div class="right-section col-9">
-        <form action="./betalen_verwerken.php" method="post" class="form">
-<!--
+        <form action="./betalen.php" method="post" class="form"> 
+
             <div class="row">
                 <div class="col-5 input-text">
                     Aankomst
@@ -49,7 +49,7 @@
                     <span><input type="number" name="uren" class="uitrijtijd" placeholder="hh" max="4" required></span>
                     <span><input type="number" name="minuten" class="uitrijtijd" placeholder="mm" max="59" required></span>
                 </div>
-            </div> -->
+            </div>
 
             <div class="row">
                 <div class="col-5 input-text">
@@ -59,7 +59,7 @@
                     <input type="text" name="prijs" class="prijs">
                 </div>
             </div>
-
+            
 
             <div class="row">
                 <div class="col-5 input-text">

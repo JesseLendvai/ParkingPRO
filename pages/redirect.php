@@ -1,14 +1,14 @@
-<?php
+<?php 
     require_once("../initialize.php");
-//get the asked things
+
 $aankomst = $_GET['aankomst'];
 $vertrek = $_GET['vertrek'];
 $type = $_GET['type'];
-  //select the asked things
+
     if($_SERVER['REQUEST_METHOD'] == "POST") {
         $query = "SELECT voornaam, emailadres, rol FROM klant WHERE emailadres = '" . $_POST['emailadres'] . "' AND wachtwoord = '" . $_POST['wachtwoord'] . "'";
         $result = $con->query($query);
-        //if the num_rows inside the result is bigger then 0. then display the result
+
         if($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
             $_SESSION['gebruiker'] = $row['emailadres'];
@@ -20,12 +20,8 @@ $type = $_GET['type'];
                 $_SESSION['logged_admin'] = TRUE;
             }
             $email = $_POST['emailadres'];
-<<<<<<< HEAD
             var_dump($_SESSION);
-            echo "U wordt geredirect";
-=======
-
->>>>>>> 41fa7daf3578b39fa3e9af8d5ffa704c88c5b2ad
+            echo "moker gay";
 
 $to = $email;
 $subject = "";
@@ -49,17 +45,17 @@ $headers = "MIME-Version: 1.0" . "\r\n";
 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
 // More headers
-$headers .= 'From: <airport@lelystad.nl>' . "\r\n";
+$headers .= 'From: <shit@peepz.nl>' . "\r\n";
 
 if(mail($to,$subject,$message,$headers)){
 	echo "done";
 }
 
-            header('Location: http://localhost/parkingpro/pages/index.php?mail=true');
+            header('Location: http://localhost/ProjectParkeren/pages/index.php?mail=true');
 
             }
         }else{
-            header("Location: http://localhost/parkingpro/pages/login.php?aankomst=$aankomst&vertrek=$vertrek&type=$type");
+            header("Location: http://localhost/ProjectParkeren/pages/login.php?aankomst=$aankomst&vertrek=$vertrek&type=$type");
         }
     }
 

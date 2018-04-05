@@ -1,12 +1,12 @@
 <?php
 setcookie ("email", "", time() - 3600);
-//will reset the cookie
+//will reset cookie(client,browser)
 unset($_COOKIE["email"]);
-// will destroy the cookie
+// will destroy cookie(server)
     session_start();
     session_destroy();
-
-    header('Location: http://localhost/parkingpro/pages/index.php');
+    
+    header('Location: http://localhost/ProjectParkeren/pages/index.php');
 ?>
 
 <!DOCTYPE html>
@@ -18,12 +18,12 @@ unset($_COOKIE["email"]);
 	<button onclick="del()">delete</button>
 
 	<script type="text/javascript">
-
+		
 		function del(){
 			document.cookie = "email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-			location.href = "http://localhost/parkingpro/pages/index.php";
+			location.href = "http://localhost/ProjectParkeren/pages/index.php";
 		}
-// test
+
 	</script>
 </body>
 </html>
