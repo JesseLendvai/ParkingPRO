@@ -35,7 +35,7 @@
                 $_SESSION['Logged_garagemedewerker'] = TRUE;
             } elseif ($SESSION['rol'] == "m") {
                 $_SESSION['Logged_garagemanager'] = TRUE;
-}
+            }
             var_dump($_SESSION);
 
             $cookie_name = "email";
@@ -50,7 +50,7 @@
     }
 
     if(isset($_SESSION['logged_user'])) {
-        // header('Location: http://localhost/parkingpro/pages/index.php');
+         header('Location: http://localhost/parkingpro/pages/index.php');
     }
 ?>
 
