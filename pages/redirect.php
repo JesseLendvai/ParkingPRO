@@ -1,6 +1,5 @@
 <?php
-
-  require_once("../initialize.php");
+    require_once("../initialize.php");
 //get the asked things
 $aankomst = $_GET['aankomst'];
 $vertrek = $_GET['vertrek'];

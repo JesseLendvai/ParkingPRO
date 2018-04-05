@@ -1,5 +1,4 @@
 <!doctype html>
-
 <html lang="nl">
   <head>
     <!-- Required meta tags -->

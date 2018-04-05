@@ -1,9 +1,9 @@
 <?php
-      require_once("../initialize.php");
+    require_once("../initialize.php");
     require_once("../parts/header.php");
 
     // if(isset($_GET['sendmail'])){
-
+        
     // }
 
 ?>
@@ -27,7 +27,7 @@
                 Met behulp van uw mobiele telefoon kunt u hier een parkeerplek reserveren.<br>
                 Voor het reserveren is uw registratie vereist, waarbij u uw NAW gegevens moet invullen.<br>
                 In totaal zijn er drie parkeermethodes, die ieder hun eigen tarief en voordelen kennen.<br><br>
-
+                
                 Indien u vragen heeft, kunt u ons contacteren via de contactpagina.
             </div>
          </div>
