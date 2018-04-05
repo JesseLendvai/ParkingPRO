@@ -1,5 +1,5 @@
 <?php
-    require_once("../initialize.php");
+      require_once("../initialize.php");
     require_once("../parts/header.php");
 ?>
 

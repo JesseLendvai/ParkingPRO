@@ -1,7 +1,7 @@
 <?php
 
   // set de tijdzone
-  date_default_timezone_set("UTC");
+    date_default_timezone_set("UTC");
 
   //calculate the time difference
   function dateDiff($time1, $time2, $precision = 6) {

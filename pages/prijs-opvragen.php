@@ -2,8 +2,7 @@
 //only require this page one time
 require_once 'dateDiff.php';
 
-
-?>
+  ?>
 <!doctype html>
 <html lang="nl">
   <head>

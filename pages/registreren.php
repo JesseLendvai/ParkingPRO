@@ -2,17 +2,16 @@
     require_once("../initialize.php");
     require_once("../parts/header.php");
 
-
-    if($_SERVER['REQUEST_METHOD'] == "POST") {
+  if($_SERVER['REQUEST_METHOD'] == "POST") {
         $auth_key = generateId(19);
         $kenteken = $_POST['kenteken_een'] . '-' . $_POST['kenteken_twee'] . '-' . $_POST['kenteken_drie'];
         $aankomst = $_POST["jaar"] . "-" . $_POST["maand"] . "-" . $_POST["dag"] . " " . $_POST["aankomsttijd"] . ":00";
 
-        $stmt = $con->prepare("INSERT INTO klant (kenteken, voornaam, tussenvoegsel, achternaam, straatnaam, huisnummer, postcode, woonplaats, emailadres, telefoonnummer, rekeningnummer, auth_key) 
+        $stmt = $con->prepare("INSERT INTO klant (kenteken, voornaam, tussenvoegsel, achternaam, straatnaam, huisnummer, postcode, woonplaats, emailadres, telefoonnummer, rekeningnummer, auth_key)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt->bind_param("ssssssssssss", $kenteken, $_POST['voornaam'], $_POST['tussenvoegsel'], $_POST['achternaam'], $_POST['straatnaam'], $_POST['huisnummer'], $_POST['postcode'], $_POST['woonplaats'], $_POST['emailadres'], $_POST['telefoonnummer'], $_POST['rekeningnummer'], $auth_key);
         $stmt->execute();
-        
+
         $stmt = $con->prepare("INSERT INTO reservering (kenteken, typeparking, aankomst)
         VALUES (?, ?, ?)");
         $stmt->bind_param("sss", $kenteken, $_POST['typeparking'], $aankomst);
@@ -44,7 +43,7 @@ $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 $headers .= 'From: <no-reply@lelystadparking.nl>' . "\r\n";
 
 mail($to,$subject,$message,$headers);
-        
+
     } else {
         //Do nothing cuz he didn't post
     }
@@ -53,7 +52,7 @@ mail($to,$subject,$message,$headers);
         //User is already logged in so redirect him to the index page
         header('Location: http://localhost/parkingpro/pages/index.php');
     }
-    
+
 
 ?>
 
@@ -68,7 +67,7 @@ mail($to,$subject,$message,$headers);
     ?>
 
     <div class="right-section col-9">
-        <form action="./registreren.php" method="post" class="form"> 
+        <form action="./registreren.php" method="post" class="form">
             <div class="row">
                 <div class="col-5 input-text">
                     Voornaam
@@ -77,7 +76,7 @@ mail($to,$subject,$message,$headers);
                     <input type="text" name="voornaam" placeholder="Voornaam" maxlength="35" required >
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col-5 input-text">
                     Tussenvoegsel
@@ -163,7 +162,7 @@ mail($to,$subject,$message,$headers);
                     <input type="text" name="rekeningnummer" placeholder="Rekeningnummer" maxlength="20" required>
                 </div>
             </div>
-            
+
 
             <div class="row">
                 <div class="col-5 input-text">
@@ -196,7 +195,7 @@ mail($to,$subject,$message,$headers);
                     <span class="aankomst-dag">DAG</span>
                     <span class="aankomst-maand">MAAND</span>
                     <span class="aankomst-jaar">JAAR</span>
-                </div>  
+                </div>
             </div>
 
             <div class="row">

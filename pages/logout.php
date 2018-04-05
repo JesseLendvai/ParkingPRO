@@ -1,5 +1,6 @@
 <?php
-setcookie ("email", "", time() - 3600);
+
+  setcookie ("email", "", time() - 3600);
 //will reset the cookie
 unset($_COOKIE["email"]);
 // will destroy the cookie
