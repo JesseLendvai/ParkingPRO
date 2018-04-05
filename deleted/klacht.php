@@ -25,13 +25,39 @@
     require_once("../initialize.php");
 
     if(!isset($_SESSION['logged_user'])) {
-        header('Location: http://localhost/ProjectParkeren/pages/login.php');
+        header('Location: http://localhost/parkingpro/pages/login.php');
     }
+
+    //Select user data
+    $user = $_SESSION['gebruiker'];
+
+    if(isset($_POST['klagen'])){
+    $kenteken = $_POST['kenteken'];
+    $stmt1 = $con->prepare("SELECT * FROM klant WHERE emailadres=?");
+            $stmt1->bind_param("s", $user);
+            $stmt1->execute();
+            $result1 = $stmt1->get_result();
+            $array1=mysqli_fetch_array($result1);
+
+    $stmt2 = $con->prepare("SELECT * FROM klant WHERE kenteken=?");
+            $stmt2->bind_param("s", $kenteken);
+            $stmt2->execute();
+            $result2 = $stmt2->get_result();
+            $array2=mysqli_fetch_array($result2);
+
+    //Check of de klant wel de klacht kan maken
+    if($array1['kenteken'] == $kenteken && $array2['emailadres'] == $user){
+        //Voer de klacht in
+        $stmt = $con->prepare("INSERT INTO klachten (klant_id, factuur_id) VALUES (?, ?)");
+            $stmt->bind_param("ssi", $gtauser, $username, $userId);
+            $stmt->execute();
+    }
+}
 ?>
 
 <div class="row">
     <div class="top-section col-12">
-        <h2>Schoonmaken</h2>
+        <h2>Klacht indienen</h2>
     </div>
 </div>
 
@@ -41,54 +67,56 @@
     ?>
     
     <div class="right-section col-9">
-        <form action="./betalen.php" method="post" class="form"> 
-
+        <form action="" method="post" class="form"> 
             <div class="row">
                 <div class="col-5 input-text">
-                    Type behandeling
+                    Kenteken
                 </div>
                 <div class="col-7 form-input">
-                    <input type="radio" name="typeparking" value="schoonmaken" checked> schoonmaken
-                    <input type="radio" name="typeparking" value="wassen"> Wassen
-                    <input type="radio" name="typeparking" value="bijvullen"> Bijvullen
+                    <input onchange="" size="16" type="text" placeholder="XX-XX-XX">
                 </div>
             </div>
             
             <div class="row">
                 <div class="col-5 input-text">
-                    Tijd van ophalen
+                    Ticket ID
                 </div>
                 <div class="col-7 form-input aankomst">
-                    <div class="input-append date form_datetime">
-                        <input id="datePicker" size="16" type="text" value="" readonly>
-                        <span class="add-on"><i class="icon-th"></i></span>
-                    </div>
+                    <input onchange="" size="16" type="text">
                 </div>  
+            </div>
+
+            <div class="row">
+                <div class="col-5 input-text">
+                    Beschrijving
+                </div>
+                <div class="col-7 form-input aankomst">
+                    <textarea style="resize: none;" onkeyup="countChar(this)" maxlength="280" rows="7" cols="50" wrap="hard" required></textarea>
+                    <div id="charNum"></div>
+                </div>
             </div>
 
             <div class="row">
                 <div class="col-5">
                 </div>
                 <div class="col-7 form-input">
-                    <input type="submit" value="AANMELDEN">
+                    <input type="submit" name="klagen" value="Klagen">
                 </div>
             </div>
         </form>
     </div>
 </div>
 
-
 <script>
-$(function() {
-    $(".form_datetime").datetimepicker({
-        format: "yyyy-mm-dd hh:ii:ss",
-        minuteStep: 15,
-        startDate: new Date(),
-        autoclose: true,
-        todayBtn: true,
-        todayHighlight: true
-    });
-});
+    function countChar(val) {
+        let len = val.value.length;
+        let maxVal = 280;
+        if (len > maxVal) {
+          val.value = val.value.substring(0, maxVal);
+        } else {
+          $('#charNum').text(`${maxVal - len} characters left...`);
+        }
+      };
 </script>
 </body>
 </html>

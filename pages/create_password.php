@@ -3,7 +3,7 @@
     require_once("../parts/header.php");
     $result_set = query("SELECT * FROM klant WHERE auth_key = '" . $_GET['auth_key'] . "'");
     if (!mysqli_fetch_assoc($result_set)) {
-        header('Location: http://localhost/parkingpro/pages/registreren.php');
+        header('Location: http://localhost/ProjectParkeren/pages/registreren.php');
     }
 
     if($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -12,7 +12,7 @@
         }
         elseif ($_POST['wachtwoord'] === $_POST['bevestig_wachtwoord']) {
             query("UPDATE klant SET wachtwoord = '" . $_POST['wachtwoord'] . "' WHERE auth_key = '" . $_GET['auth_key'] . "'");
-            header('Location: http://localhost/parkingpro/pages/login.php');
+            header('Location: http://localhost/ProjectParkeren/pages/login.php');
         } else {
             echo "<script>alert('Wachtwoorden komen niet overeen!')</script>";
         }

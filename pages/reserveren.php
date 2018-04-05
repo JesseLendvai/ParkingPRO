@@ -25,7 +25,7 @@
     require_once("../initialize.php");
 
     if(!isset($_SESSION['logged_user'])) {
-        header('Location: http://localhost/parkingpro/pages/login.php');
+        header('Location: http://localhost/ProjectParkeren/pages/login.php');
     }
 ?>
 
