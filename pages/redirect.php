@@ -20,8 +20,12 @@ $type = $_GET['type'];
                 $_SESSION['logged_admin'] = TRUE;
             }
             $email = $_POST['emailadres'];
+<<<<<<< HEAD
             var_dump($_SESSION);
             echo "U wordt geredirect";
+=======
+
+>>>>>>> 41fa7daf3578b39fa3e9af8d5ffa704c88c5b2ad
 
 $to = $email;
 $subject = "";
